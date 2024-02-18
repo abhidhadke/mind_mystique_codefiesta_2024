@@ -10,4 +10,9 @@ class QuestionBank {
     'Word 22',
   ];
 
+  List<String> SlotThreeQuestions = [
+    'Word 31',
+    'Word 32',
+  ];
+
 }
