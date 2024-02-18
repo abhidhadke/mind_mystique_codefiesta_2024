@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Data/Slots.dart' as slot;
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -112,6 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            Text('The current slot is: ' + '${slot.SlotNumber(DateTime.now())}')
           ],
         ),
       ),
