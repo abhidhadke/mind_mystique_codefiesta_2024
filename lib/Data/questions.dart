@@ -1,18 +1,76 @@
 class QuestionBank {
 
   List<String> SlotOneQuestions = [
-    'Word 11',
-    'Word 12',
+    'Word1',
+    'Word22',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    ''
   ];
 
   List<String> SlotTwoQuestions = [
-    'Word 21',
-    'Word 22',
+    'Word1',
+    'Word22',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    ''
   ];
 
   List<String> SlotThreeQuestions = [
-    'Word 31',
-    'Word 32',
+    'Word1',
+    'Word22',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    ''
   ];
+
+  List<String> SlotFourQuestions = [
+    'Word1',
+    'Word22',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    ''
+  ];
+
 
 }

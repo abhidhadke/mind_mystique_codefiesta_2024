@@ -72,7 +72,7 @@ class _StartPageState extends State<StartPage> {
                                   Navigator.of(context).pop();
                                   Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
-                                          builder: (_) => const QuizPage()));
+                                          builder: (_) => QuizPage(slotNumber: timeSlot,)));
                                 },
                                 child: const Text("Start",
                                     style: TextStyle(fontSize: 18, color: clrs.textColor))),
