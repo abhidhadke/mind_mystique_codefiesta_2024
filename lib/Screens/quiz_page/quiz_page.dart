@@ -8,6 +8,7 @@ import 'common_widgets.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key, required this.slotNumber});
+
   final int slotNumber;
 
   @override
@@ -17,7 +18,23 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   int _timeLeft = 80; // Total time for the countdown
   late Timer _timer;
-  final List<int?> _questionStatus = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  final List<int?> _questionStatus = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ];
   late List<FocusNode> _focusNodes;
   late List<TextEditingController> _controllers;
   int counter = 0;
@@ -41,9 +58,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     } else if (widget.slotNumber == 2) {
       answerBank = QuestionBank().SlotTwoQuestions;
     } else if (widget.slotNumber == 3) {
-      answerBank = QuestionBank().SlotThreeQuestions;
-    } else if (widget.slotNumber == 4) {
       answerBank = QuestionBank().SlotFourQuestions;
+    } else if (widget.slotNumber == 4) {
+      answerBank = QuestionBank().SlotThreeQuestions;
     } else {
       answerBank = [];
     }
