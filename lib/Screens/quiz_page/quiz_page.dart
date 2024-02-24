@@ -15,8 +15,10 @@ class QuizPage extends StatefulWidget {
   State<QuizPage> createState() => _QuizPageState();
 }
 
+bool answered = false;
+
 class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
-  int _timeLeft = 5; // Total time for the countdown
+  int _timeLeft = 80; // Total time for the countdown
   late Timer _timer;
   final List<int?> _questionStatus = [
     0,
@@ -133,7 +135,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               findWordCount(counter);
               createFields();
               _timer.cancel();
-              _timeLeft = 5;
+              _timeLeft = 80;
+              answered = false;
               startTimer();
             } else {
               _timer.cancel();
@@ -184,7 +187,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               ),
               backgroundColor: Colors.transparent,
             ),
-            bottomNavigationBar: submitButton(),
+            bottomNavigationBar: (answered)?Container():submitButton(),
             body: SingleChildScrollView(
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.7,
@@ -268,12 +271,14 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           style: ElevatedButton.styleFrom(
             backgroundColor: clrs.secondaryColor,
           ),
+
           onPressed: () {
             String enteredWords =
                 _controllers.map((controller) => controller.text).join();
             debugPrint('Entered words: $enteredWords');
             debugPrint("$counter");
             setState(() {
+              answered = true;
               if (enteredWords.toLowerCase() ==
                   answerBank[counter].toLowerCase()) {
                 _questionStatus[counter] = 1;
