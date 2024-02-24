@@ -19,8 +19,8 @@ class QuestionBank {
   ];
 
   List<String> SlotTwoQuestions = [
-    'Keyboard',
     'Bank',
+    'Keyboard',
     'Hole',
     'Seven',
     'Heroine',
@@ -39,8 +39,8 @@ class QuestionBank {
   ];
 
   List<String> SlotThreeQuestions = [
-    'Road',
     'Map',
+    'Road',
     'TeaPot',
     'Eyeball',
     'Brain',
@@ -57,8 +57,8 @@ class QuestionBank {
   ];
 
   List<String> SlotFourQuestions = [
-    'Future',
     'echo',
+    'Future',
     'peacock',
     'letterbox',
     'O',

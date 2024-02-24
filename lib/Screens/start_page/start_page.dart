@@ -23,7 +23,7 @@ class _StartPageState extends State<StartPage> {
   }
 
   checkTimeSlot() {
-    timeSlot = test ? 2 : slot.SlotNumber(DateTime.now());
+    timeSlot = test ? 3 : slot.SlotNumber(DateTime.now());
   }
 
   @override

@@ -16,7 +16,7 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
-  int _timeLeft = 80; // Total time for the countdown
+  int _timeLeft = 5; // Total time for the countdown
   late Timer _timer;
   final List<int?> _questionStatus = [
     0,
@@ -133,7 +133,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               findWordCount(counter);
               createFields();
               _timer.cancel();
-              _timeLeft = 80;
+              _timeLeft = 5;
               startTimer();
             } else {
               _timer.cancel();
