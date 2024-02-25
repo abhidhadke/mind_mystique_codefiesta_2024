@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:mind_mystique/Data/questions.dart';
+import 'package:mind_mystique/Screens/quiz_page/thank_you.dart';
 import 'package:vibration/vibration.dart';
 import 'package:flutter/material.dart';
 import 'package:mind_mystique/Colors.dart' as clrs;
@@ -60,9 +61,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     } else if (widget.slotNumber == 2) {
       answerBank = QuestionBank().SlotTwoQuestions;
     } else if (widget.slotNumber == 3) {
-      answerBank = QuestionBank().SlotFourQuestions;
-    } else if (widget.slotNumber == 4) {
       answerBank = QuestionBank().SlotThreeQuestions;
+    } else if (widget.slotNumber == 4) {
+      answerBank = QuestionBank().SlotFourQuestions;
     } else {
       answerBank = [];
     }
@@ -129,9 +130,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               _questionStatus[counter] = -1;
               debugPrint("$_questionStatus");
             }
-
-            if (counter < 15) {
-              counter++;
+            counter++;
+            if (counter <= 14) {
               findWordCount(counter);
               createFields();
               _timer.cancel();
@@ -141,7 +141,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             } else {
               _timer.cancel();
               score = _questionStatus.where((number) => number == 1).length;
-              showFinishDialog(context: context, score: score);
+             Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => ThankYou(score: score)));
             }
           } else {
             _timeLeft--;
@@ -187,7 +187,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               ),
               backgroundColor: Colors.transparent,
             ),
-            bottomNavigationBar: (answered)?Container():submitButton(),
+            bottomNavigationBar: Visibility(
+                visible: !answered,
+                child: submitButton()),
             body: SingleChildScrollView(
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.7,
@@ -278,13 +280,14 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             debugPrint('Entered words: $enteredWords');
             debugPrint("$counter");
             setState(() {
-              answered = true;
+
               if (enteredWords.toLowerCase() ==
                   answerBank[counter].toLowerCase()) {
                 _questionStatus[counter] = 1;
                 score++;
                 if (correctVisible != true) {
                   correctVisible = true;
+                  answered = true;
                   Timer(const Duration(milliseconds: 150), () {
                     _controllerCorrect.forward();
                   });

@@ -23,7 +23,7 @@ class _StartPageState extends State<StartPage> {
   }
 
   checkTimeSlot() {
-    timeSlot = test ? 3 : slot.SlotNumber(DateTime.now());
+    timeSlot = 1;
   }
 
   @override
@@ -47,7 +47,7 @@ class _StartPageState extends State<StartPage> {
               onLongPress: (){
                 Navigator.of(context).push(
                     MaterialPageRoute(
-                        builder: (_) => QuizPage(slotNumber: 4,)));
+                        builder: (_) => const QuizPage(slotNumber: 1,)));
               },
               onPressed: () {
                 if (timeSlot != 0) {
@@ -103,9 +103,9 @@ class _StartPageState extends State<StartPage> {
             const SizedBox(
               height: 10,
             ),
-            Text(
-              'Time Slot: $timeSlot',
-              style: const TextStyle(
+            const Text(
+              'Time Slot: 4',
+              style: TextStyle(
                   fontSize: 23,
                   fontWeight: FontWeight.w600,
                   color: clrs.textColor),

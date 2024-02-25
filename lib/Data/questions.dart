@@ -9,7 +9,7 @@ class QuestionBank {
     'Six',
     'Stairs',
     'Gloves',
-    'Callculator',
+    'Calculator',
     'Coconut',
     'candle',
     'toothpaste',
